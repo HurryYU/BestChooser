@@ -142,7 +142,6 @@ singleChooserManager.setOnChooseChangeListener(object : OnChooseChangeListener()
 如果您希望上面的3个选项是多选，您仅需给它设置一个多选的Mode即可：
 
 ```kotlin
-// 																您只需新增↓
 val singleChooserManager = ChooserViewGroupManager.Builder(ChooserMode.MODE_MULTIPLE)
     .addChooserView(chooserView = *arrayOf(ali_pay_view, wechat_pay_view, 
                                            union_pay_view))

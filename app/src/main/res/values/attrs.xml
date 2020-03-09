@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PayChooseView">
+        <attr name="payment_image_src" format="reference" />
+        <attr name="payment_name" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="SchoolChooseView">
+        <attr name="school_name" format="string" />
+        <attr name="school_level" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="MenuChooseView">
+        <attr name="food_name" format="string" />
+        <attr name="food_img" format="reference" />
+    </declare-styleable>
+</resources>

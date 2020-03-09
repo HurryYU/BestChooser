@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/tv_single_choose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="产品新需求-单选"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.hurryyu.bestchooser.simple.PayChooseView
+            android:id="@+id/ali_pay_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/wechat_pay_view"
+            app:layout_constraintTop_toBottomOf="@id/tv_single_choose"
+            app:payment_image_src="@drawable/icon_alipay"
+            app:payment_name="支付宝支付"
+            app:viewTag="alipay" />
+
+        <com.hurryyu.bestchooser.simple.PayChooseView
+            android:id="@+id/wechat_pay_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/ali_pay_view"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ali_pay_view"
+            app:payment_image_src="@drawable/icon_wechat_pay"
+            app:payment_name="微信支付"
+            app:viewTag="wxpay" />
+
+        <com.hurryyu.bestchooser.simple.PayChooseView
+            android:id="@+id/union_pay_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ali_pay_view"
+            app:payment_image_src="@drawable/icon_union_pay"
+            app:payment_name="银联支付"
+            app:viewTag="unionpay" />
+
+        <TextView
+            android:id="@+id/tv_multiple_choose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="又改需求-多选"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/union_pay_view" />
+
+        <com.hurryyu.bestchooser.simple.SchoolChooseView
+            android:id="@+id/qinghua_school_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_multiple_choose"
+            app:school_level="本科"
+            app:school_name="清华大学"
+            app:viewTag="00001" />
+
+        <com.hurryyu.bestchooser.simple.SchoolChooseView
+            android:id="@+id/cqcet_school_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/qinghua_school_view"
+            app:school_level="专科"
+            app:school_name="重庆电子工程职业学院"
+            app:viewTag="01010" />
+
+        <com.hurryyu.bestchooser.simple.SchoolChooseView
+            android:id="@+id/ligong_school_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toStartOf="@id/zhijiao_school_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cqcet_school_view"
+            app:school_level="本科"
+            app:school_name="重庆理工大学"
+            app:viewTag="00715" />
+
+        <com.hurryyu.bestchooser.simple.SchoolChooseView
+            android:id="@+id/zhijiao_school_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ligong_school_view"
+            app:layout_constraintTop_toTopOf="@id/ligong_school_view"
+            app:school_level="职高"
+            app:school_name="北碚职教中心"
+            app:viewTag="01599" />
+
+        <TextView
+            android:id="@+id/tv_multiple_choose_limit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="双改需求-多选且限制数量"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ligong_school_view" />
+
+        <com.hurryyu.bestchooser.simple.SchoolChooseView
+            android:id="@+id/qinghua_school_view_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_multiple_choose_limit"
+            app:school_level="本科"
+            app:school_name="清华大学"
+            app:viewTag="00001" />
+
+        <com.hurryyu.bestchooser.simple.SchoolChooseView
+            android:id="@+id/cqcet_school_view_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/qinghua_school_view_1"
+            app:school_level="专科"
+            app:school_name="重庆电子工程职业学院"
+            app:viewTag="01010" />
+
+        <com.hurryyu.bestchooser.simple.SchoolChooseView
+            android:id="@+id/ligong_school_view_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toStartOf="@id/zhijiao_school_view_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cqcet_school_view_1"
+            app:school_level="本科"
+            app:school_name="重庆理工大学"
+            app:viewTag="00715" />
+
+        <com.hurryyu.bestchooser.simple.SchoolChooseView
+            android:id="@+id/zhijiao_school_view_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ligong_school_view_1"
+            app:layout_constraintTop_toTopOf="@id/ligong_school_view_1"
+            app:school_level="职高"
+            app:school_name="北碚职教中心"
+            app:viewTag="01599" />
+
+        <TextView
+            android:id="@+id/tv_menu_choose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="叒改需求-两荤一素一汤混合选择"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/zhijiao_school_view_1" />
+
+        <TextView
+            android:id="@+id/tv_meat_categories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="荤菜"
+            android:textColor="#FF9900"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_menu_choose" />
+
+        <com.hurryyu.bestchooser.simple.MenuChooseView
+            android:id="@+id/yuxiangrousi_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:food_img="@drawable/yuxiangrousi"
+            app:food_name="鱼香肉丝"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/xiaochaorou_view"
+            app:layout_constraintTop_toBottomOf="@id/tv_meat_categories"
+            app:viewTag="鱼香肉丝" />
+
+        <com.hurryyu.bestchooser.simple.MenuChooseView
+            android:id="@+id/xiaochaorou_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:food_img="@drawable/xiaochaorou"
+            app:food_name="农家小炒肉"
+            app:layout_constraintLeft_toRightOf="@id/yuxiangrousi_view"
+            app:layout_constraintRight_toLeftOf="@id/huiguorou_view"
+            app:layout_constraintTop_toTopOf="@id/yuxiangrousi_view"
+            app:viewTag="小炒肉" />
+
+        <com.hurryyu.bestchooser.simple.MenuChooseView
+            android:id="@+id/huiguorou_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:food_img="@drawable/huiguorou"
+            app:food_name="回锅肉"
+            app:layout_constraintLeft_toRightOf="@id/xiaochaorou_view"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/xiaochaorou_view"
+            app:viewTag="回锅肉" />
+
+        <TextView
+            android:id="@+id/tv_vegetable_categories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="素菜"
+            android:textColor="#FF9900"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/yuxiangrousi_view" />
+
+        <com.hurryyu.bestchooser.simple.MenuChooseView
+            android:id="@+id/douya_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:food_img="@drawable/chaodouya"
+            app:food_name="炒豆芽"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/mapodoufu_view"
+            app:layout_constraintTop_toBottomOf="@id/tv_vegetable_categories"
+            app:viewTag="炒豆芽" />
+
+        <com.hurryyu.bestchooser.simple.MenuChooseView
+            android:id="@+id/mapodoufu_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:food_img="@drawable/mapodoufu"
+            app:food_name="麻婆豆腐"
+            app:layout_constraintLeft_toRightOf="@id/douya_view"
+            app:layout_constraintRight_toLeftOf="@id/yuxiangqiezi_view"
+            app:layout_constraintTop_toTopOf="@id/douya_view"
+            app:viewTag="麻婆豆腐" />
+
+        <com.hurryyu.bestchooser.simple.MenuChooseView
+            android:id="@+id/yuxiangqiezi_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:food_img="@drawable/yuxiangqiezi"
+            app:food_name="鱼香茄子"
+            app:layout_constraintLeft_toRightOf="@id/mapodoufu_view"
+            app:layout_constraintRight_toLeftOf="@id/tudousi_view"
+            app:layout_constraintTop_toTopOf="@id/douya_view"
+            app:viewTag="鱼香茄子" />
+
+        <com.hurryyu.bestchooser.simple.MenuChooseView
+            android:id="@+id/tudousi_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:food_img="@drawable/tudousi"
+            app:food_name="土豆丝"
+            app:layout_constraintLeft_toRightOf="@id/yuxiangqiezi_view"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/douya_view"
+            app:viewTag="土豆丝" />
+
+        <TextView
+            android:id="@+id/tv_soup_categories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="汤菜"
+            android:textColor="#FF9900"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/douya_view" />
+
+        <com.hurryyu.bestchooser.simple.MenuChooseView
+            android:id="@+id/fanqiejidantang_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:food_img="@drawable/fanqiejidantang"
+            app:food_name="番茄鸡蛋汤"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/zicaidantang_view"
+            app:layout_constraintTop_toBottomOf="@id/tv_soup_categories"
+            app:viewTag="番茄鸡蛋汤" />
+
+        <com.hurryyu.bestchooser.simple.MenuChooseView
+            android:id="@+id/zicaidantang_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:food_img="@drawable/zicaidanhuatang"
+            app:food_name="紫菜蛋汤"
+            app:layout_constraintLeft_toRightOf="@id/fanqiejidantang_view"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/fanqiejidantang_view"
+            app:viewTag="紫菜蛋汤" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

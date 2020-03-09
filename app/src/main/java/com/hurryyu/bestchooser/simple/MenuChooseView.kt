@@ -1,0 +1,58 @@
+package com.hurryyu.bestchooser.simple
+
+import android.content.Context
+import android.graphics.Color
+import android.util.AttributeSet
+import android.view.LayoutInflater
+import android.view.View
+import com.hurryyu.bestchooser.ChooserView
+import kotlinx.android.synthetic.main.view_menu_choose.view.*
+
+/**
+ * ===================================================================
+ * Author: HurryYu http://www.hurryyu.com & https://github.com/HurryYU
+ * Email: cqbbyzh@gmial.com or 1037914505@qq.com
+ * Time: 2020/3/9
+ * Version: 1.0
+ * Description:
+ * ===================================================================
+ */
+class MenuChooseView @JvmOverloads constructor(
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+) : ChooserView(context, attrs, defStyleAttr) {
+
+    private lateinit var view: View
+
+    var foodName = ""
+        set(value) {
+            field = value
+            view.tv_food_name.text = value
+        }
+    var foodImageResId = 0
+        set(value) {
+            field = value
+            view.iv_food_img.setImageResource(value)
+        }
+
+    override fun createView(attrs: AttributeSet?) {
+        view = LayoutInflater.from(context).inflate(R.layout.view_menu_choose, this)
+        attrs.apply {
+            val typedArray =
+                context.obtainStyledAttributes(this, R.styleable.MenuChooseView)
+            foodName = typedArray.getString(R.styleable.MenuChooseView_food_name) ?: ""
+            val foodImg = typedArray.getResourceId(R.styleable.MenuChooseView_food_img, 0)
+            if (foodImg != 0) {
+                foodImageResId = foodImg
+            }
+            typedArray.recycle()
+        }
+    }
+
+    override fun onSelectChange(isSelect: Boolean) {
+        if (isSelect) {
+            view.tv_food_name.setTextColor(Color.parseColor("#FF8000"))
+        } else {
+            view.tv_food_name.setTextColor(Color.parseColor("#6D6D6D"))
+        }
+    }
+}

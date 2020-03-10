@@ -1,0 +1,10 @@
+apply plugin: 'com.novoda.bintray-release'
+
+publish {
+    userOrg = 'hurryyu'
+    groupId = 'com.hurryyu'
+    artifactId = 'BestChooser'
+    publishVersion = '1.0'
+    desc = '一款简单易用的单选,多选,分组选择框架,功能强大.可取代RadioGroup+RadioButton,CheckBox等控件'
+    website = 'https://github.com/HurryYU/BestChooser'
+}

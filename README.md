@@ -14,7 +14,7 @@
 Gradle加入以下代码：
 
 ```groovy
-uploading
+implementation 'com.hurryyu:BestChooser:1.0'
 ```
 
 在使用前，您都需要创建一个类并继承`ChooserView`，用于提供选项的布局：

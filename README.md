@@ -212,7 +212,7 @@ val menuChooserManager = ChooserViewGroupManager.Builder()
 
 首先我要感谢[Selector](https://github.com/wisdomtl/Selector)框架为我编写此框架带来了灵感与帮助，谢谢！
 
-如果您觉得本框架对您有所帮助，欢迎您点击Start
+如果您觉得本框架对您有所帮助，欢迎您点击Star
 
 如果您在使用过程中有任何疑问，都可以与我取得联系：
 

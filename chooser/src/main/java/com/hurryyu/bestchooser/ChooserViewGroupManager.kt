@@ -68,11 +68,10 @@ class ChooserViewGroupManager private constructor(
             vararg chooserView: ChooserView
         ) = apply {
             if (chooserView.isNotEmpty()) {
-                val chooserViewList = chooserViewByGroupTag[groupTag]
-                chooserViewList?.addAll(chooserView) ?: chooserViewByGroupTag.put(
-                    groupTag,
-                    mutableListOf(*chooserView)
-                )
+                val chooserViewList = chooserViewByGroupTag.getOrPut(groupTag) {
+                    mutableListOf()
+                }
+                chooserViewList.addAll(chooserView)
             }
         }
 

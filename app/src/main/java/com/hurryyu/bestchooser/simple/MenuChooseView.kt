@@ -4,9 +4,8 @@ import android.content.Context
 import android.graphics.Color
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.View
 import com.hurryyu.bestchooser.ChooserView
-import kotlinx.android.synthetic.main.view_menu_choose.view.*
+import com.hurryyu.bestchooser.simple.databinding.ViewMenuChooseBinding
 
 /**
  * ===================================================================
@@ -21,21 +20,21 @@ class MenuChooseView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : ChooserView(context, attrs, defStyleAttr) {
 
-    private lateinit var view: View
+    private lateinit var binding: ViewMenuChooseBinding
 
     var foodName = ""
         set(value) {
             field = value
-            view.tv_food_name.text = value
+            binding.tvFoodName.text = value
         }
     var foodImageResId = 0
         set(value) {
             field = value
-            view.iv_food_img.setImageResource(value)
+            binding.ivFoodImg.setImageResource(value)
         }
 
     override fun createView(attrs: AttributeSet?) {
-        view = LayoutInflater.from(context).inflate(R.layout.view_menu_choose, this)
+        binding = ViewMenuChooseBinding.inflate(LayoutInflater.from(context), this, true)
         attrs.apply {
             val typedArray =
                 context.obtainStyledAttributes(this, R.styleable.MenuChooseView)
@@ -50,9 +49,9 @@ class MenuChooseView @JvmOverloads constructor(
 
     override fun onSelectChange(isSelect: Boolean) {
         if (isSelect) {
-            view.tv_food_name.setTextColor(Color.parseColor("#FF8000"))
+            binding.tvFoodName.setTextColor(Color.parseColor("#FF8000"))
         } else {
-            view.tv_food_name.setTextColor(Color.parseColor("#6D6D6D"))
+            binding.tvFoodName.setTextColor(Color.parseColor("#6D6D6D"))
         }
     }
 }

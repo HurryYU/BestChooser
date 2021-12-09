@@ -6,7 +6,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import com.hurryyu.bestchooser.ChooserView
-import kotlinx.android.synthetic.main.view_school_choose.view.*
+import com.hurryyu.bestchooser.simple.databinding.ViewSchoolChooseBinding
 
 /**
  * ===================================================================
@@ -21,20 +21,20 @@ class SchoolChooseView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : ChooserView(context, attrs, defStyleAttr) {
 
-    private lateinit var view: View
+    private lateinit var binding: ViewSchoolChooseBinding
     var schoolName: String = ""
         set(value) {
             field = value
-            view.tv_school_name.text = value
+            binding.tvSchoolName.text = value
         }
     var schoolLevel: String = ""
         set(value) {
             field = value
-            view.tv_school_level.text = value
+            binding.tvSchoolLevel.text = value
         }
 
     override fun createView(attrs: AttributeSet?) {
-        view = LayoutInflater.from(context).inflate(R.layout.view_school_choose, this)
+        binding = ViewSchoolChooseBinding.inflate(LayoutInflater.from(context), this, true)
         attrs.apply {
             val typed = context.obtainStyledAttributes(this, R.styleable.SchoolChooseView)
             schoolName = typed.getString(R.styleable.SchoolChooseView_school_name) ?: ""
@@ -45,11 +45,11 @@ class SchoolChooseView @JvmOverloads constructor(
 
     override fun onSelectChange(isSelect: Boolean) {
         if (isSelect) {
-            view.tv_school_name.setTextColor(Color.parseColor("#4dd171"))
-            view.iv_school_choose.visibility = View.VISIBLE
+            binding.tvSchoolName.setTextColor(Color.parseColor("#4dd171"))
+            binding.ivSchoolChoose.visibility = View.VISIBLE
         } else {
-            view.tv_school_name.setTextColor(Color.parseColor("#686868"))
-            view.iv_school_choose.visibility = View.GONE
+            binding.tvSchoolName.setTextColor(Color.parseColor("#686868"))
+            binding.ivSchoolChoose.visibility = View.GONE
         }
     }
 }

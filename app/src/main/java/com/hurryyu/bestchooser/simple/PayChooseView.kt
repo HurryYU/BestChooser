@@ -6,11 +6,8 @@ import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
 import com.hurryyu.bestchooser.ChooserView
-import kotlinx.android.synthetic.main.view_pay_choose.view.*
+import com.hurryyu.bestchooser.simple.databinding.ViewPayChooseBinding
 
 /**
  * ===================================================================
@@ -28,17 +25,15 @@ class PayChooseView @JvmOverloads constructor(
     var paymentName: String = ""
         set(value) {
             field = value
-            view.tv_payment_name.text = value
+            binding.tvPaymentName.text = value
         }
     var paymentImageResId: Int = 0
         set(value) {
             field = value
-            view.iv_payment_icon.setImageResource(value)
+            binding.ivPaymentIcon.setImageResource(value)
         }
 
-    private lateinit var view: View
-    private lateinit var tvPaymentName: TextView
-    private lateinit var ivPaymentImage: ImageView
+    private lateinit var binding: ViewPayChooseBinding
     private val gradientDrawable: GradientDrawable by lazy { GradientDrawable() }
     private val valueAnimator: ValueAnimator by lazy {
         val animator = ValueAnimator.ofInt(0, 255)
@@ -47,9 +42,7 @@ class PayChooseView @JvmOverloads constructor(
     }
 
     override fun createView(attrs: AttributeSet?) {
-        view = LayoutInflater.from(context).inflate(R.layout.view_pay_choose, this)
-        tvPaymentName = view.tv_payment_name
-        ivPaymentImage = view.iv_payment_icon
+        binding = ViewPayChooseBinding.inflate(LayoutInflater.from(context), this, true)
         attrs?.apply {
             val obtainStyledAttributes =
                 context.obtainStyledAttributes(this, R.styleable.PayChooseView)
@@ -68,7 +61,7 @@ class PayChooseView @JvmOverloads constructor(
         gradientDrawable.apply {
             setStroke(5, Color.RED)
             alpha = 0
-            view.background = this
+            binding.root.background = this
         }
     }
 

@@ -9,6 +9,19 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:7.0.3'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.vanniktech:gradle-maven-publish-plugin:0.18.0'
+    }
+}
+
+allprojects {
+    plugins.withId("com.vanniktech.maven.publish") {
+        mavenPublish {
+            sonatypeHost = "S01"
+        }
+    }
+    repositories {
+        google()
+        mavenCentral()
     }
 }
 

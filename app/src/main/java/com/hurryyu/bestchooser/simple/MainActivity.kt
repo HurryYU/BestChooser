@@ -7,13 +7,15 @@ import com.hurryyu.bestchooser.ChooserMode
 import com.hurryyu.bestchooser.ChooserView
 import com.hurryyu.bestchooser.ChooserViewGroupManager
 import com.hurryyu.bestchooser.OnChooseChangeListener
-import kotlinx.android.synthetic.main.activity_main.*
+import com.hurryyu.bestchooser.simple.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         singleChoose()
         multipleChoose()
         multipleChooseWitLimit()
@@ -25,15 +27,20 @@ class MainActivity : AppCompatActivity() {
      */
     private fun menuChoose() {
         val menuChooserManager = ChooserViewGroupManager.Builder()
-            .addChooserView("meatGroup", yuxiangrousi_view, xiaochaorou_view, huiguorou_view)
+            .addChooserView(
+                "meatGroup",
+                binding.yuxiangrousiView,
+                binding.xiaochaorouView,
+                binding.huiguorouView
+            )
             .addChooserView(
                 "vegetable",
-                douya_view,
-                mapodoufu_view,
-                yuxiangqiezi_view,
-                tudousi_view
+                binding.douyaView,
+                binding.mapodoufuView,
+                binding.yuxiangqieziView,
+                binding.tudousiView
             )
-            .addChooserView("soup", fanqiejidantang_view, zicaidantang_view)
+            .addChooserView("soup", binding.fanqiejidantangView, binding.zicaidantangView)
             .chooserModeByGroupTag("meatGroup", ChooserMode.MODE_MULTIPLE, 2)
             .build()
 
@@ -63,11 +70,11 @@ class MainActivity : AppCompatActivity() {
         val multipleChooserManager = ChooserViewGroupManager.Builder(ChooserMode.MODE_MULTIPLE)
             .allGroupMaxCount(2)
             .addChooserView(
-                chooserView = *arrayOf(
-                    qinghua_school_view_1,
-                    cqcet_school_view_1,
-                    zhijiao_school_view_1,
-                    ligong_school_view_1
+                chooserView = arrayOf(
+                    binding.qinghuaSchoolView1,
+                    binding.cqcetSchoolView1,
+                    binding.zhijiaoSchoolView1,
+                    binding.ligongSchoolView1
                 )
             )
             .build()
@@ -103,11 +110,11 @@ class MainActivity : AppCompatActivity() {
 
         val multipleChooserManager = ChooserViewGroupManager.Builder(ChooserMode.MODE_MULTIPLE)
             .addChooserView(
-                chooserView = *arrayOf(
-                    qinghua_school_view,
-                    cqcet_school_view,
-                    zhijiao_school_view,
-                    ligong_school_view
+                chooserView = arrayOf(
+                    binding.qinghuaSchoolView,
+                    binding.cqcetSchoolView,
+                    binding.zhijiaoSchoolView,
+                    binding.ligongSchoolView
                 )
             )
             .build()
@@ -136,7 +143,13 @@ class MainActivity : AppCompatActivity() {
      */
     private fun singleChoose() {
         val singleChooserManager = ChooserViewGroupManager.Builder()
-            .addChooserView(chooserView = *arrayOf(ali_pay_view, wechat_pay_view, union_pay_view))
+            .addChooserView(
+                chooserView = arrayOf(
+                    binding.aliPayView,
+                    binding.wechatPayView,
+                    binding.unionPayView
+                )
+            )
             .build()
 
         singleChooserManager.setOnChooseChangeListener(object : OnChooseChangeListener() {

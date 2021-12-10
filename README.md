@@ -11,10 +11,12 @@
 
 ## 二、使用
 
+本库已上传至`MavenCentral`，在引用前，请确保您项目已添加支持`mavenCentral()`。通常，它是默认就支持的，如无异常，您无需关心。
+
 Gradle加入以下代码：
 
 ```groovy
-implementation 'com.hurryyu:BestChooser:1.0'
+implementation 'com.hurryyu.android:best-chooser:1.0'
 ```
 
 在使用前，您都需要创建一个类并继承`ChooserView`，用于提供选项的布局：
